@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java基本数据类型对象包装类 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="基本数据类型对象包装类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基本数据类型对象包装类">
+<meta property="og:url" content="http://www.learnandroid.cn/2016/04/24/Java基本数据类型对象包装类/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基本数据类型对象包装类">
+<meta property="og:updated_time" content="2016-05-23T17:25:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基本数据类型对象包装类">
+<meta name="twitter:description" content="基本数据类型对象包装类">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+      <link href="//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Xavier Lee</a></h1>
+        </hgroup>
+
+        
+        
+        <form><input type="text" class="search" placeholder=" Search..."></form>
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:724379330@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/github.com/Xavielee" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Project/" style="font-size: 10px;">Android Project</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/Xavielee">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.0x00000000.cn">LoveLinux</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://thqy39.github.io">webAgent</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://LiYade.github.io">BigBoss</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Xavier Lee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Xavier Lee</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:724379330@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/github.com/Xavielee" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Java基本数据类型对象包装类" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/24/Java基本数据类型对象包装类/" class="article-date">
+      <time datetime="2016-04-24T08:23:57.000Z" itemprop="datePublished">2016-04-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基本数据类型对象包装类
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java基础/">java基础</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="基本数据类型对象包装类"><a href="#基本数据类型对象包装类" class="headerlink" title="基本数据类型对象包装类"></a>基本数据类型对象包装类</h2><a id="more"></a>
+<h3 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h3><ul>
+<li>为了方便操作基本数据类型值，将其封装成对象，在对象中定义了属性和行为，丰富了对数据的操作。</li>
+</ul>
+<h3 id="用途："><a href="#用途：" class="headerlink" title="用途："></a>用途：</h3><ol>
+<li>基本数据类型转字符串：<ol>
+<li>基本类型数值+””;</li>
+<li>用String类中的静态方法valueof(基本类型数值);</li>
+<li>用Integer的静态方法valueof(基本类型数值);</li>
+</ol>
+</li>
+<li>字符串转基本数据类型：<ol>
+<li>使用包装类中的静态方法xxx parseXxx(“xxx类型的字符串”),只有Character没有parse方法。</li>
+<li>如果字符串被Integer进行对象封装，可使用另一个非静态方法:intValue(),将一个Integer对象转成基本数据类型值。</li>
+</ol>
+</li>
+<li>进制转换：<ol>
+<li>十进制转其他进制;</li>
+<li>其他进制转十进制;</li>
+</ol>
+</li>
+</ol>
+<h3 id="自动装箱拆箱"><a href="#自动装箱拆箱" class="headerlink" title="自动装箱拆箱"></a>自动装箱拆箱</h3><ol>
+<li>jdk1.5以后自动装箱，如果装箱的是一个字节，那么该数据会被共享，不会开辟新空间。</li>
+<li>只有在赋值(=)的时候才会出现装箱和拆箱两种情况,在比较(==)的时候只会出现一种情况，那就是拆箱，而不会出现装箱的情况。</li>
+<li>JVM会自动缓存-128~127范围内的值，所以所有在这个范围内的值相等的Integer对象都会共用一块内存，而不会开辟多个；超出这个范围内的值对应的Integer对象有多少个就开辟多少个内存，这样做是为了节省内存消耗。</li>
+</ol>
+<h3 id="示例程序1："><a href="#示例程序1：" class="headerlink" title="示例程序1："></a>示例程序1：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WrapperDemo</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="keyword">int</span> num = <span class="number">4</span>;</div><div class="line">		Integer i = <span class="keyword">new</span> Integer(<span class="number">4</span>);<span class="comment">//jdk1.4</span></div><div class="line">    <span class="comment">//自动装箱，这里会调用Integer中的valueOf方法把int装箱成Integer类型  </span></div><div class="line">		Integer j = <span class="number">4</span>;<span class="comment">//jdk1.5</span></div><div class="line">		j = j + <span class="number">6</span>;<span class="comment">//</span></div><div class="line">		System.out.println(j);</div><div class="line"></div><div class="line">    <span class="comment">//这里会调用Integer的intValue方法获得Integer对象j指向的栈地址中存的值再与num进行值比较,而不是把c装箱成Integer类型进行地址比较  </span></div><div class="line">    System.out.println(j == num);<span class="comment">//false</span></div><div class="line">    System.out.println(num == j);<span class="comment">//false</span></div><div class="line">		show(<span class="number">55</span>);</div><div class="line"></div><div class="line">		Integer a = <span class="keyword">new</span> Integer(<span class="number">127</span>);</div><div class="line">		Integer b = <span class="keyword">new</span> Integer(<span class="number">127</span>);</div><div class="line">		System.out.println(a==b);<span class="comment">//false</span></div><div class="line">		System.out.println(a.equals(b));<span class="comment">//true</span></div><div class="line"></div><div class="line">		Integer c = <span class="keyword">new</span> Integer(<span class="number">128</span>);</div><div class="line">		Integer d = <span class="keyword">new</span> Integer(<span class="number">128</span>);</div><div class="line">		System.out.println(c==d);<span class="comment">//false</span></div><div class="line">		System.out.println(c.equals(d));<span class="comment">//true</span></div><div class="line"></div><div class="line">		Integer x = <span class="number">127</span>;</div><div class="line">		Integer y = <span class="number">127</span>;</div><div class="line">		System.out.println(x==y);<span class="comment">//true,jdk1.5以后自动装箱，JVM会自动缓存-128~127范围内的值（一个字节），所以所有在这个范围内的值相等的Integer对象都会共用一块内存，而不会开辟多个。</span></div><div class="line">		System.out.println(x.equals(y));<span class="comment">//true</span></div><div class="line"></div><div class="line">		Integer p = <span class="number">128</span>;</div><div class="line">		Integer q = <span class="number">128</span>;</div><div class="line">		System.out.println(p==q);<span class="comment">//false,jdk1.5以后自动装箱，JVM会自动缓存-128~127范围内的值（一个字节），所以所有在这个范围内的值相等的Integer对象都会共用一块内存，而不会开辟多个。</span></div><div class="line">		System.out.println(p.equals(q));<span class="comment">//true</span></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(Object a)</span><span class="comment">//Object a = new Integer(55)</span></span></div><div class="line">	&#123;</div><div class="line">		System.out.println(<span class="string">"a="</span>+a);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="参考结果："><a href="#参考结果：" class="headerlink" title="参考结果："></a>参考结果：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="number">10</span></div><div class="line"><span class="keyword">false</span></div><div class="line"><span class="keyword">false</span></div><div class="line">a=<span class="number">55</span></div><div class="line"><span class="keyword">false</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="keyword">false</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="keyword">false</span></div><div class="line"><span class="keyword">true</span></div></pre></td></tr></table></figure>
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2:"></a>示例2:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WrapperDemo2</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(Integer.MAX_VALUE);</div><div class="line">		System.out.println(Integer.toBinaryString(-<span class="number">6</span>));</div><div class="line"></div><div class="line">		<span class="keyword">int</span> num = <span class="number">4</span>;</div><div class="line">		Integer i = <span class="keyword">new</span> Integer(num);</div><div class="line">		System.out.println(i);</div><div class="line"></div><div class="line">		<span class="keyword">int</span> x = Integer.parseInt(<span class="string">"123"</span>);</div><div class="line">		System.out.println(<span class="string">"123"</span>+<span class="number">1</span>);</div><div class="line">		System.out.println(x+<span class="number">1</span>);</div><div class="line">		System.out.println(i.intValue());</div><div class="line"></div><div class="line">		<span class="comment">//十进制转其他进制</span></div><div class="line">		System.out.println(Integer.toBinaryString(<span class="number">60</span>));</div><div class="line">		System.out.println(Integer.toOctalString(<span class="number">60</span>));</div><div class="line">		System.out.println(Integer.toHexString(<span class="number">60</span>));</div><div class="line">		<span class="comment">//十进制转换到指定进制</span></div><div class="line">		System.out.println(Integer.toString(<span class="number">60</span>,<span class="number">16</span>));</div><div class="line">		<span class="comment">//其他进制转十进制</span></div><div class="line">		System.out.println(Integer.parseInt(<span class="string">"3c"</span>,<span class="number">16</span>));</div><div class="line"></div><div class="line">		<span class="comment">//自动拆装箱</span></div><div class="line">		Integer a = <span class="keyword">new</span> Integer(<span class="string">"5"</span>);</div><div class="line">		Integer b = <span class="keyword">new</span> Integer(<span class="string">"5"</span>);</div><div class="line"></div><div class="line">    System.out.println(a==b);</div><div class="line">		System.out.println(a.equals(b));</div><div class="line">		System.out.println(a.compareTo(b));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="参考答案："><a href="#参考答案：" class="headerlink" title="参考答案："></a>参考答案：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="number">2147483647</span></div><div class="line"><span class="number">11111111111111111111111111111010</span></div><div class="line"><span class="number">4</span></div><div class="line"><span class="number">1231</span></div><div class="line"><span class="number">124</span></div><div class="line"><span class="number">4</span></div><div class="line"><span class="number">111100</span></div><div class="line"><span class="number">74</span></div><div class="line"><span class="number">3</span>c</div><div class="line"><span class="number">3</span>c</div><div class="line"><span class="number">60</span></div><div class="line"><span class="keyword">false</span></div><div class="line"><span class="keyword">true</span></div><div class="line"><span class="number">0</span></div></pre></td></tr></table></figure>
+<h3 id="基本数据类型包装类练习："><a href="#基本数据类型包装类练习：" class="headerlink" title="基本数据类型包装类练习："></a>基本数据类型包装类练习：</h3><ul>
+<li>对一个字符串中的数值进行从小到大的排序，”20 78 9 -7 88 36 29”。</li>
+<li>思路：<ol>
+<li>排序.</li>
+<li>如何获取到这个字符串中的这些需要排序的数值？发现这个字符串中其实都是空格来对数值进行分隔的。所以就想到用字符串对象的切割方法将大串变成多个小串。<ol>
+<li>数值最终变成小字符串，怎么变成一个int数呢？字符串–&gt;基本类型 可以使用包装类。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Arrays;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WrapperTest</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String SPACE_SEPARATOR = <span class="string">" "</span>;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">		String numStr = <span class="string">"20 78 9 -7 88 36 29"</span>;</div><div class="line"></div><div class="line">		System.out.println(numStr);</div><div class="line">		numStr = sortStringNumber(numStr);</div><div class="line">		System.out.println(numStr);</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">sortStringNumber</span><span class="params">(String numStr)</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="comment">//1,将字符串变成字符串数组。</span></div><div class="line">		String[] str_arr = stringToArray(numStr);</div><div class="line"></div><div class="line">		<span class="comment">//2,将字符串数组变成int数组。</span></div><div class="line">		<span class="keyword">int</span>[] num_arr = toIntArray(str_arr);</div><div class="line"></div><div class="line">		<span class="comment">//3,对int数组排序。</span></div><div class="line">		mySortArray(num_arr);</div><div class="line"></div><div class="line">		<span class="comment">//4,将排序后的int数组变成字符串。</span></div><div class="line">		String temp = arrayToString(num_arr);</div><div class="line"></div><div class="line">		<span class="keyword">return</span> temp;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">arrayToString</span><span class="params">(<span class="keyword">int</span>[] num_arr)</span> </span>&#123;</div><div class="line"></div><div class="line">		StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">0</span>; x&lt;num_arr.length; x++)&#123;</div><div class="line">			<span class="keyword">if</span>(x!=num_arr.length-<span class="number">1</span>)</div><div class="line">				sb.append(num_arr[x]+SPACE_SEPARATOR);</div><div class="line">			<span class="keyword">else</span></div><div class="line">				sb.append(num_arr[x]);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">return</span> sb.toString();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mySortArray</span><span class="params">(<span class="keyword">int</span>[] num_arr)</span> </span>&#123;</div><div class="line"></div><div class="line">		Arrays.sort(num_arr);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] toIntArray(String[] str_arr) &#123;</div><div class="line"></div><div class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[str_arr.length];</div><div class="line"></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">			arr[i] = Integer.parseInt(str_arr[i]);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">return</span> arr;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> String[] stringToArray(String numStr) &#123;</div><div class="line">		String[] str_arr = numStr.split(SPACE_SEPARATOR);</div><div class="line"></div><div class="line">		<span class="keyword">return</span> str_arr;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/04/24/Java基本数据类型对象包装类/">Java基本数据类型对象包装类</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Xavier Lee 的个人博客">Xavier Lee</a></p>
+        <p><span>发布时间:</span>2016年04月24日 - 16时23分</p>
+        <p><span>最后更新:</span>2016年05月24日 - 01时25分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/24/Java基本数据类型对象包装类/" title="Java基本数据类型对象包装类">http://www.learnandroid.cn/2016/04/24/Java基本数据类型对象包装类/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.learnandroid.cn/2016/04/24/Java基本数据类型对象包装类/　　作者: Xavier Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/05/13/Java集合Collection详解/">
+                    Java集合Collection详解
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/04/17/Java_String详解/">
+                    Java_String详解
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本数据类型对象包装类"><span class="toc-number">1.</span> <span class="toc-text">基本数据类型对象包装类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述："><span class="toc-number">1.1.</span> <span class="toc-text">概述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用途："><span class="toc-number">1.2.</span> <span class="toc-text">用途：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动装箱拆箱"><span class="toc-number">1.3.</span> <span class="toc-text">自动装箱拆箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例程序1："><span class="toc-number">1.4.</span> <span class="toc-text">示例程序1：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考结果："><span class="toc-number">1.4.1.</span> <span class="toc-text">参考结果：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例2"><span class="toc-number">1.5.</span> <span class="toc-text">示例2:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考答案："><span class="toc-number">1.5.1.</span> <span class="toc-text">参考答案：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型包装类练习："><span class="toc-number">1.6.</span> <span class="toc-text">基本数据类型包装类练习：</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/05/13/Java集合Collection详解/" title="上一篇: Java集合Collection详解">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/04/17/Java_String详解/" title="下一篇: Java_String详解">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/Java面试之替换空格/">Java面试之替换空格</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/交换类排序之冒泡排序/">交换类排序之冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/交换类排序之快速排序/">交换类排序之快速排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Java面试之无限大数组中求第k大/">Java面试之无限大数组中求第k大</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/Java网络编程/">Java网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/Java集合Map详解/">Java集合Map详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/Java面试之素数/">Java面试之素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/Java泛型/">Java泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之操作数组/">Java面试之操作数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java模拟堆栈/">Java模拟堆栈队</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之音乐专辑/">Java面试之音乐专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之操作字符串/">Java面试之操作字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java常用设计模式/">Java常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/Java集合Collection详解/">Java集合Collection详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/24/Java基本数据类型对象包装类/">Java基本数据类型对象包装类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/17/Java_String详解/">Java_String详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/Java面试之大数据相乘/">Java面试之大数据相乘</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/Java多线程/">Java多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Java_Package/">Java_Package</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Java_Object/">Java_Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Java_Exception/">Java_Exception</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/Java匿名内部类/">Java匿名内部类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/Java_InnerClass/">Java_InnerClass</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java多态/">Java多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java_Interface/">Java_Interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java抽象类/">Java抽象类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/Java继承/">Java继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/Android_downloadPicture/">Android_downloadPicture</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/27/Android_updateVersionCode/">Android_updateVersionCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/26/Android_Camera/">Android_Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Android_MobileSafe/">Android_MobileSafe</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Xavier Lee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java常用设计模式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="策略模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java常用设计模式">
+<meta property="og:url" content="http://www.learnandroid.cn/2016/05/15/Java常用设计模式/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="策略模式">
+<meta property="og:updated_time" content="2016-05-15T17:12:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java常用设计模式">
+<meta name="twitter:description" content="策略模式">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+      <link href="//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Xavier Lee</a></h1>
+        </hgroup>
+
+        
+        
+        <form><input type="text" class="search" placeholder=" Search..."></form>
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:724379330@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/github.com/Xavielee" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Project/" style="font-size: 10px;">Android Project</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/Xavielee">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.0x00000000.cn">LoveLinux</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://thqy39.github.io">webAgent</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://LiYade.github.io">BigBoss</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Xavier Lee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Xavier Lee</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:724379330@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/github.com/Xavielee" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Java常用设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/15/Java常用设计模式/" class="article-date">
+      <time datetime="2016-05-15T02:01:23.000Z" itemprop="datePublished">2016-05-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java常用设计模式
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><a id="more"></a>
+<h3 id="写在前面-为什么要学习设计模式？"><a href="#写在前面-为什么要学习设计模式？" class="headerlink" title="写在前面-为什么要学习设计模式？"></a>写在前面-为什么要学习设计模式？</h3><ul>
+<li>对于接触编程不久的我来说，编程的目的就是简简单单的实现我想实现的功能。再到接触到设计模式，我认为这样写代码真是浪费时间浪费精力，很简单的实现非得搞得很复杂，再后来随着软件开发经验的增加，我才开始明白我之前以为的简单仅仅是设计的简单，而现实中软件开发中，简单随意的设计让你的代码可读性大打折扣，复用性几乎不存在。设计模式就是将一类问题封装起来处理，将逻辑独立的代码封装出来，提高代码的复用性，可移植性。</li>
+</ul>
+<h2 id="策略模式详解"><a href="#策略模式详解" class="headerlink" title="策略模式详解"></a>策略模式详解</h2><ul>
+<li>模拟鸭子游戏的应用程序，要求：游戏中会出现各种颜色外形的鸭子，一边游泳戏水，一边呱呱叫。</li>
+</ul>
+<h3 id="第一种方法："><a href="#第一种方法：" class="headerlink" title="第一种方法："></a>第一种方法：</h3><ul>
+<li>直接编写出各种鸭子的类：MallardDuck//野鸭，RedheadDuck//红头鸭，各类有三个方法：<br>quack()：叫的方法<br>swim()：游水的方法<br>display()：外形的方法<h3 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法:"></a>第二种方法:</h3></li>
+</ul>
+<ol>
+<li><p>设计一个鸭子的超类（Superclass）,并让各种鸭子继承这个超类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>&#123;  <span class="comment">//呱呱叫</span></div><div class="line">              System.out.println(<span class="string">"呱呱叫"</span>);</div><div class="line">      &#125;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">()</span></span>&#123;   <span class="comment">//游泳</span></div><div class="line">            System.out.println(<span class="string">" 游泳"</span>);</div><div class="line">      &#125;    </div><div class="line">     <span class="function"><span class="keyword">public</span>  abstratact <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>; <span class="comment">/*因为外观不一样，让子类自己去决定了。*/</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>对于它的子类只需简单的继承就可以了，并实现自己的display()方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//野鸭</span></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MallardDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</div><div class="line">          System.out.println(<span class="string">"野鸭的颜色..."</span>);</div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line"><span class="comment">//红头鸭</span></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedheadDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</div><div class="line">          System.out.println(<span class="string">"红头鸭的颜色..."</span>);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>现在客户又提出了新的需求，想让鸭子飞起来。我们在超类中在加一个方法就可以了。</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>&#123;  <span class="comment">//呱呱叫</span></div><div class="line">              System.out.println(<span class="string">"呱呱叫"</span>);</div><div class="line">      &#125;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">()</span></span>&#123;   <span class="comment">//游泳</span></div><div class="line">            System.out.println(<span class="string">" 游泳"</span>);</div><div class="line">    &#125;    </div><div class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>; <span class="comment">/*因为外观不一样，让子类自己去决定了。*/</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"飞吧！鸭子"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>对于不能飞的鸭子，在子类中只需简单的覆盖。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//残废鸭</span></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DisabledDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</div><div class="line">          System.out.println(<span class="string">"残废鸭的颜色..."</span>);</div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//覆盖，变成什么事都不做。</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>其它会飞的鸭子不用覆盖。这样所有的继承这个超类的鸭子都会fly了。但是问题又出来了，客户又提出有的鸭子会飞，有的不能飞。</p>
+<h4 id="休息思考："><a href="#休息思考：" class="headerlink" title="休息思考："></a>休息思考：</h4></li>
+</ol>
+<ul>
+<li>对于上面的设计，你可能发现一些弊端，如果超类有新的特性，子类都必须变动，这是我们开发最不喜欢看到的，一个类变让另一个类也跟着变，这样很显然的耦合了一起，既然耦合度太高，我们就要降低耦合度。<h3 id="第三种方法："><a href="#第三种方法：" class="headerlink" title="第三种方法："></a>第三种方法：</h3></li>
+</ul>
+<ol>
+<li><p>用接口改进.<br>   我们把容易引起变化的部分提取出来并封装之，来应付以后的变法。虽然代码加大了，但可用性提高了，耦合度也降低了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">//我们把Duck中的fly方法和quack提取出来。</span></div><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Flyable</span></span>&#123;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Quackable</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">//最后Duck的设计成为：</span></div><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">()</span></span>&#123;   <span class="comment">//游泳</span></div><div class="line">            System.out.println(<span class="string">" 游泳"</span>);</div><div class="line">    &#125;    </div><div class="line">  <span class="function"><span class="keyword">public</span>  <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;</div><div class="line">   <span class="comment">//因为外观不一样，让子类自己去决定。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>MallardDuck,RedheadDuck,DisabledDuck 就可以写成为：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//野鸭</span></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MallardDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span>  <span class="keyword">implements</span> <span class="title">Flyable</span>,<span class="title">Quackable</span></span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</div><div class="line">          System.out.println(<span class="string">"野鸭的颜色..."</span>);</div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//实现该方法</span></div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//实现该方法</span></div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">//红头鸭</span></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedheadDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span> <span class="keyword">implements</span> <span class="title">Flyable</span>,<span class="title">Quackable</span></span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</div><div class="line">     System.out.println(<span class="string">"红头鸭的颜色..."</span>);</div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>&#123;</div><div class="line">     <span class="comment">//实现该方法</span></div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>&#123;</div><div class="line">     <span class="comment">//实现该方法</span></div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"> <span class="comment">//残废鸭 只实现Quackable（能叫不能飞）</span></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DisabledDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span> <span class="keyword">implements</span> <span class="title">Quackable</span></span>&#123;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</div><div class="line">     System.out.println(<span class="string">"残废鸭的颜色..."</span>);</div><div class="line">   &#125;</div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>&#123;</div><div class="line">     <span class="comment">//实现该方法</span></div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="休息思考"><a href="#休息思考" class="headerlink" title="休息思考:"></a>休息思考:</h4><ul>
+<li>好处:<br>  这样已设计，我们的程序就降低了它们之间的耦合。</li>
+<li>弊处:<br>  Flyable和 Quackable接口一开始似乎还挺不错的，解决了问题（只有会飞到鸭子才实现 Flyable），但是Java接口不具有实现代码，所以实现接口无法达到代码的复用。<h3 id="第四种方法："><a href="#第四种方法：" class="headerlink" title="第四种方法："></a>第四种方法：</h3><h4 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h4></li>
+<li>继承的优点:复用性提高。</li>
+<li>继承的弊处:耦合性高，一旦超类添加一个新方法,子类都继承,拥有此方法,<pre><code>若子类相当部分不实现此方法,则要进行大批量修改。继承时,子类就不可继承其它类了.
+</code></pre></li>
+<li>接口的优点:解决了继承耦合性高的问题，可以继承或实现其它类或接口。</li>
+<li>接口的弊处:不能真正实现代码的复用。</li>
+</ul>
+<h2 id="strategy-策略模式"><a href="#strategy-策略模式" class="headerlink" title="strategy(策略模式)"></a>strategy(策略模式)</h2><h3 id="设计原则："><a href="#设计原则：" class="headerlink" title="设计原则："></a>设计原则：</h3><ol>
+<li>找出应用中相同之处，且不容易发生变化的东西，把它们抽取到抽象类中，让子类去继承它们；</li>
+<li>找出应用中可能需要变化之处，把它们独立出来，不要和那些不需要变化的代码混在一起。(important)</li>
+<li>现在，为了要分开“变化和不变化的部分”，我们准备建立两组类（完全远离Duck类），一个是”fly”相关的，另一个是“quack”相关的，每一组类将实现各自的动作。比方说，我们可能有一个类实现“呱呱叫”，另一个类实现“吱吱叫”，还有一个类实现“安静”。</li>
+</ol>
+<h3 id="首先写两个接口-FlyBehavior-飞行行为-和QuackBehavior-叫的行为"><a href="#首先写两个接口-FlyBehavior-飞行行为-和QuackBehavior-叫的行为" class="headerlink" title="首先写两个接口,FlyBehavior(飞行行为)和QuackBehavior(叫的行为)."></a>首先写两个接口,FlyBehavior(飞行行为)和QuackBehavior(叫的行为).</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">//FlyBehavior(飞行行为)</span></div><div class="line">  <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FlyBehavior</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;     </div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">//QuackBehavior(叫的行为)</span></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">QuackBehavior</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="comment">//我们在定义一些针对FlyBehavior的具体实现。</span></div><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlyWithWings</span> <span class="keyword">implements</span> <span class="title">FlyBehavior</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">fly</span><span class="params">()</span></span>&#123;</div><div class="line">     <span class="comment">//实现了所有有翅膀的鸭子飞行行为。</span></div><div class="line">   &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FlyNoWay</span> <span class="keyword">implements</span> <span class="title">FlyBehavior</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">fly</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="comment">//什么都不做，不会飞</span></div><div class="line">    &#125;</div><div class="line"> &#125;   </div><div class="line"></div><div class="line"><span class="comment">//针对QuackBehavior的几种具体实现。</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Quack</span> <span class="keyword">implements</span> <span class="title">QuackBehavior</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="comment">//实现呱呱叫的鸭子</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Squeak</span> <span class="keyword">implements</span> <span class="title">QuackBehavior</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="comment">//实现吱吱叫的鸭子</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MuteQuack</span> <span class="keyword">implements</span> <span class="title">QuackBehavior</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">quack</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="comment">//什么都不做，不会叫</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="点评一"><a href="#点评一" class="headerlink" title="点评一:"></a>点评一:</h3><ul>
+<li>这样的设计，可以让飞行和呱呱叫的动作被其他的对象复用，因为这些行为已经与鸭子类无关了。而我们增加一些新的行为，不会影响到既有的行为类，也不会影响“使用”到飞行行为的鸭子类。<h4 id="Duck设计"><a href="#Duck设计" class="headerlink" title="Duck设计:"></a>Duck设计:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span></span>&#123;</div><div class="line">  <span class="comment">//在抽象类中,声明各接口,定义各接口对应的方法.</span></div><div class="line">  FlyBehavior flyBehavior;<span class="comment">//接口</span></div><div class="line">  QuackBehavior quackBehavior;<span class="comment">//接口</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Duck</span><span class="params">()</span></span>&#123;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">swim</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//实现游泳的行为</span></div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performFly</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//由于是接口,会根据继承类实现的方式,而调用相应的方法</span></div><div class="line">    flyBehavior.fly();</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performQuack</span><span class="params">()</span></span>&#123;</div><div class="line">    quackBehavior.quack();</div><div class="line">  &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="MallardDuck实现"><a href="#MallardDuck实现" class="headerlink" title="MallardDuck实现:"></a>MallardDuck实现:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过构造方法,生成'飞','叫'具体实现类的实例,从而指定'飞','叫'的具体属性</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MallardDuck</span> <span class="keyword">extends</span> <span class="title">Duck</span></span>&#123;</div><div class="line">  <span class="keyword">public</span> MallardDuck &#123;       </div><div class="line">    flyBehavior = <span class="keyword">new</span> FlyWithWings ();</div><div class="line">    quackBehavior = <span class="keyword">new</span> Quack();</div><div class="line">    <span class="comment">//因为MallardDuck 继承了Duck，所有具有flyBehavior 与quackBehavior 实例变量&#125;</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</div><div class="line">      <span class="comment">//实现</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>这样就满足了即可以飞，又可以叫，同时展现自己的颜色了。</li>
+<li>这样的设计我们可以看到是把flyBehavior ，quackBehavior 的实例化写在子类了。</li>
+<li>我们还可以动态的来决定。我们只需在Duck中加上两个方法。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Duck</span></span>&#123;</div><div class="line">  FlyBehavior flyBehavior;<span class="comment">//接口</span></div><div class="line">  QuackBehavior quackBehavior;<span class="comment">//接口</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFlyBehavior</span><span class="params">(FlyBehavior flyBehavior)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.flyBehavior = flyBehavior;</div><div class="line">  &#125;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setQuackBehavior</span><span class="params">(QuackBehavior quackBehavior)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.quackBehavior= quackBehavior;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/05/15/Java常用设计模式/">Java常用设计模式</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Xavier Lee 的个人博客">Xavier Lee</a></p>
+        <p><span>发布时间:</span>2016年05月15日 - 10时01分</p>
+        <p><span>最后更新:</span>2016年05月16日 - 01时12分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/05/15/Java常用设计模式/" title="Java常用设计模式">http://www.learnandroid.cn/2016/05/15/Java常用设计模式/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.learnandroid.cn/2016/05/15/Java常用设计模式/　　作者: Xavier Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/05/15/Java面试之操作字符串/">
+                    Java面试之操作字符串
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/13/Java集合Collection详解/">
+                    Java集合Collection详解
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#策略模式"><span class="toc-number">1.</span> <span class="toc-text">策略模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面-为什么要学习设计模式？"><span class="toc-number">1.1.</span> <span class="toc-text">写在前面-为什么要学习设计模式？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#策略模式详解"><span class="toc-number">2.</span> <span class="toc-text">策略模式详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一种方法："><span class="toc-number">2.1.</span> <span class="toc-text">第一种方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二种方法"><span class="toc-number">2.2.</span> <span class="toc-text">第二种方法:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#休息思考："><span class="toc-number">2.2.1.</span> <span class="toc-text">休息思考：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三种方法："><span class="toc-number">2.3.</span> <span class="toc-text">第三种方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#休息思考"><span class="toc-number">2.3.1.</span> <span class="toc-text">休息思考:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四种方法："><span class="toc-number">2.4.</span> <span class="toc-text">第四种方法：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-number">2.4.1.</span> <span class="toc-text">总结:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strategy-策略模式"><span class="toc-number">3.</span> <span class="toc-text">strategy(策略模式)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设计原则："><span class="toc-number">3.1.</span> <span class="toc-text">设计原则：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#首先写两个接口-FlyBehavior-飞行行为-和QuackBehavior-叫的行为"><span class="toc-number">3.2.</span> <span class="toc-text">首先写两个接口,FlyBehavior(飞行行为)和QuackBehavior(叫的行为).</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点评一"><span class="toc-number">3.3.</span> <span class="toc-text">点评一:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Duck设计"><span class="toc-number">3.3.1.</span> <span class="toc-text">Duck设计:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MallardDuck实现"><span class="toc-number">3.3.2.</span> <span class="toc-text">MallardDuck实现:</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/05/15/Java面试之操作字符串/" title="上一篇: Java面试之操作字符串">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/13/Java集合Collection详解/" title="下一篇: Java集合Collection详解">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/Java面试之替换空格/">Java面试之替换空格</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/交换类排序之冒泡排序/">交换类排序之冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/交换类排序之快速排序/">交换类排序之快速排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Java面试之无限大数组中求第k大/">Java面试之无限大数组中求第k大</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/Java网络编程/">Java网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/Java集合Map详解/">Java集合Map详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/Java面试之素数/">Java面试之素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/Java泛型/">Java泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之操作数组/">Java面试之操作数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java模拟堆栈/">Java模拟堆栈队</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之音乐专辑/">Java面试之音乐专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之操作字符串/">Java面试之操作字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java常用设计模式/">Java常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/Java集合Collection详解/">Java集合Collection详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/24/Java基本数据类型对象包装类/">Java基本数据类型对象包装类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/17/Java_String详解/">Java_String详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/Java面试之大数据相乘/">Java面试之大数据相乘</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/Java多线程/">Java多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Java_Package/">Java_Package</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Java_Object/">Java_Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Java_Exception/">Java_Exception</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/Java匿名内部类/">Java匿名内部类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/Java_InnerClass/">Java_InnerClass</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java多态/">Java多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java_Interface/">Java_Interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java抽象类/">Java抽象类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/Java继承/">Java继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/Android_downloadPicture/">Android_downloadPicture</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/27/Android_updateVersionCode/">Android_updateVersionCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/26/Android_Camera/">Android_Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Android_MobileSafe/">Android_MobileSafe</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Xavier Lee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

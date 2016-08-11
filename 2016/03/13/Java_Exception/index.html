@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java_Exception | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="java异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java_Exception">
+<meta property="og:url" content="http://www.learnandroid.cn/2016/03/13/Java_Exception/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="java异常">
+<meta property="og:updated_time" content="2016-05-17T16:33:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java_Exception">
+<meta name="twitter:description" content="java异常">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+      <link href="//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Xavier Lee</a></h1>
+        </hgroup>
+
+        
+        
+        <form><input type="text" class="search" placeholder=" Search..."></form>
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:724379330@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/github.com/Xavielee" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Project/" style="font-size: 10px;">Android Project</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/Xavielee">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.0x00000000.cn">LoveLinux</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://thqy39.github.io">webAgent</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://LiYade.github.io">BigBoss</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Xavier Lee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Xavier Lee</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:724379330@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/github.com/Xavielee" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Java_Exception" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/Java_Exception/" class="article-date">
+      <time datetime="2016-03-12T16:52:57.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java_Exception
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java基础/">java基础</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="java异常"><a href="#java异常" class="headerlink" title="java异常"></a>java异常</h2><a id="more"></a>
+<h3 id="异常概述："><a href="#异常概述：" class="headerlink" title="异常概述："></a>异常概述：</h3><ul>
+<li>程序运行时期发生的不正常现象。</li>
+<li>java中用类的形式对不正常情况进行了描述和封装对象。</li>
+<li>描述不正常得类就叫做异常类。<br>没有异常:正常流程代码和问题处理代码相结合。<br>有异常:正常流程代码和问题处理代码相分离，提高了阅读性。</li>
+</ul>
+<h3 id="本质"><a href="#本质" class="headerlink" title="本质:"></a>本质:</h3><ul>
+<li>java通过面向对象的思想将问题封装成了对象。用异常类进行描述，不同的异常用不同的类进行具体的描述。如角标越界，空指针等。<br>将问题共性向上抽取，形成异常体系.</li>
+</ul>
+<p>Throwable:无论是Error，还是异常，问题发生就可以抛出，让调用者知道并处理。<br>//该体系的特点是Throwable及其所有的子类都具有可抛性。</p>
+<p>可抛性指什么，怎么体现可抛性?<br>其实通过两个关键字来体现的。<br>throws,throw 凡是可以被这两个关键字所操作的类和对象都具有可抛性。</p>
+<p>异常体系分为两大类：</p>
+<ol>
+<li>一般不可处理的: Error<br>   特点:由JVM抛出的严重性的问题。</li>
+<li>可以处理的: Exception。</li>
+</ol>
+<p>该体系特点:子类的后缀名都是用其父类名作为后缀，阅读性很强。</p>
+<h3 id="异常对象的抛出及原理"><a href="#异常对象的抛出及原理" class="headerlink" title="异常对象的抛出及原理"></a>异常对象的抛出及原理</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> index)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(arr == <span class="keyword">null</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"数组的引用不能为空！"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(index &gt;= arr.length)</div><div class="line">		&#123;</div><div class="line">		  <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(<span class="string">"数组角标越界！"</span>+index);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(index &lt; <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">		  <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(<span class="string">"数组角标不能为负数！"</span>+index);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">return</span> arr[index];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionDemo1</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</div><div class="line">		Demo d = <span class="keyword">new</span> Demo();</div><div class="line"></div><div class="line">		d.method(arr,<span class="number">3</span>);</div><div class="line">		d.method(arr,-<span class="number">3</span>);</div><div class="line">		d.method(<span class="keyword">null</span>,-<span class="number">3</span>);</div><div class="line">		System.out.println(<span class="string">"num"</span>+num);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="自定义异常类"><a href="#自定义异常类" class="headerlink" title="自定义异常类"></a>自定义异常类</h3><h4 id="提前throws可能会遇到的异常"><a href="#提前throws可能会遇到的异常" class="headerlink" title="提前throws可能会遇到的异常"></a>提前throws可能会遇到的异常</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FushuIndexException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span></div><div class="line">&#123;</div><div class="line">	FushuIndexException()</div><div class="line">	&#123;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	FushuIndexException(String msg)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">super</span>(msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> index)</span> <span class="keyword">throws</span> FushuIndexException</span></div><div class="line">	&#123;</div><div class="line">	    <span class="keyword">if</span>(arr == <span class="keyword">null</span>)</div><div class="line">		&#123;</div><div class="line">		    <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"数组的引用不能为空！"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(index &gt;= arr.length)</div><div class="line">		&#123;</div><div class="line">		    <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(<span class="string">"数组角标越界！"</span>+index);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(index &lt; <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">		    <span class="keyword">throw</span> <span class="keyword">new</span> FushuIndexException(<span class="string">"数组角标不能为负数！"</span>+index);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">return</span> arr[index];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionDemo2</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span><span class="keyword">throws</span> FushuIndexException</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</div><div class="line">		Demo d = <span class="keyword">new</span> Demo();</div><div class="line">		<span class="comment">//int num = d.method(arr,3);</span></div><div class="line">		<span class="keyword">int</span> num = d.method(arr,-<span class="number">3</span>);</div><div class="line">		<span class="comment">//int num = d.method(null,-3);</span></div><div class="line">		System.out.println(<span class="string">"num"</span>+num);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="异常的分类"><a href="#异常的分类" class="headerlink" title="异常的分类"></a>异常的分类</h3><ol>
+<li><p>编译时被检测异常: 只要是Exception和其子类都是，出了特殊子类RuntimeException体系；</p>
+<pre><code>这种问题一旦出现，希望在编译时就进行检测，让这种问题有对应的处理方式，可以针对性的处理。
+</code></pre></li>
+<li><p>编译时不检测异常(运行时异常): 就是Exception中的RuntimeException和其子类。</p>
+<pre><code>这种问题的发生，无法让功能继续，运算无法进行，更多是因为调用者的原因导致的或者引发内部状态的改变导致的。
+这种问题一般不处理，直接编译通过，在运行时，让调用者调用时的程序强制停止，让调用者对代码进行修正。
+</code></pre></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FushuIndexException</span> <span class="keyword">extends</span> <span class="title">RunTimeException</span></span></div><div class="line">&#123;</div><div class="line">	FushuIndexException()</div><div class="line">	&#123;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	FushuIndexException(String msg)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">super</span>(msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> index)</span> <span class="comment">//NullPointerException(抛出没有意义)</span></span></div><div class="line">	<span class="comment">//throws FushuIndexException</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(arr == <span class="keyword">null</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException(<span class="string">"数组的引用不能为空！"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(index &gt;= arr.length)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(<span class="string">"数组角标越界！"</span>+index);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span>(index &lt; <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> FushuIndexException(<span class="string">"数组角标不能为负数！"</span>+index);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> arr[index];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionDemo3</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span><span class="comment">//throws FushuIndexException</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</div><div class="line">		Demo d = <span class="keyword">new</span> Demo();</div><div class="line">		<span class="comment">//int num = d.method(arr,3);</span></div><div class="line">		<span class="keyword">int</span> num = d.method(arr,-<span class="number">3</span>);</div><div class="line">		<span class="comment">//int num = d.method(null,-3);</span></div><div class="line">		System.out.println(<span class="string">"num"</span>+num);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h3><ul>
+<li>自定义异常类时，只要 extends RuntimeException可以不用throws，编译时不会检测异常，但必须继承RuntimeException而不是Exception。</li>
+<li>自定义异常时，要么继承Exception，要么继承RuntimeException。</li>
+<li>RuntimeException 是那些可能在JVM正常运行期间抛出的异常的超类。可能在执行方法期间抛出但是未被捕获的RuntimeException的任何子类都无需再throws。</li>
+</ul>
+<h3 id="throw和throws的区别："><a href="#throw和throws的区别：" class="headerlink" title="throw和throws的区别："></a>throw和throws的区别：</h3><ol>
+<li>throws 使用在函数上。<br>throw  使用在函数内。</li>
+<li>throws 抛出的是异常类，可以抛出多个，用逗号隔开。<br>throw  抛出的是异常对象，一次只能抛出一个。</li>
+</ol>
+<h3 id="异常处理的捕捉形式"><a href="#异常处理的捕捉形式" class="headerlink" title="异常处理的捕捉形式:"></a>异常处理的捕捉形式:</h3><h4 id="格式："><a href="#格式：" class="headerlink" title="格式："></a>格式：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">	<span class="comment">//需要被检测的代码</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">catch</span>(异常类 变量)<span class="comment">//该变量用于接收发生的异常对象</span></div><div class="line">&#123;</div><div class="line">	<span class="comment">//处理异常代码</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">finally</span></div><div class="line">&#123;</div><div class="line">	<span class="comment">//一定会执行的代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FushuIndexException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span></div><div class="line">&#123;</div><div class="line">	FushuIndexException()</div><div class="line">	&#123;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	FushuIndexException(String msg)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">super</span>(msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">method</span><span class="params">(<span class="keyword">int</span>[] arr,<span class="keyword">int</span> index)</span> <span class="keyword">throws</span> FushuIndexException<span class="comment">//NullPointerException(抛出没有意义)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>(index &lt; <span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> FushuIndexException(<span class="string">"数组角标不能为负数！"</span>+index);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> arr[index];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionDemo4</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</div><div class="line">		Demo d = <span class="keyword">new</span> Demo();</div><div class="line">		<span class="keyword">try</span></div><div class="line">		&#123;</div><div class="line">			<span class="keyword">int</span> num = d.method(arr,-<span class="number">3</span>);</div><div class="line">			System.out.println(<span class="string">"num"</span>+num);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">catch</span>(FushuIndexException e)</div><div class="line">		&#123;</div><div class="line">			System.out.println(<span class="string">"message:"</span>+e.getMessage());</div><div class="line">			System.out.println(<span class="string">"String:"</span>+e.toString());</div><div class="line">			e.printStackTrace();<span class="comment">//JVM默认的异常处理机制就是调用异常对象的这个方法</span></div><div class="line">			System.out.println(<span class="string">"负数角标异常！"</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"over"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="tips-多catch情况下，父类的catth放在最下面，否则编译错误。"><a href="#tips-多catch情况下，父类的catth放在最下面，否则编译错误。" class="headerlink" title="tips: 多catch情况下，父类的catth放在最下面，否则编译错误。"></a>tips: 多catch情况下，父类的catth放在最下面，否则编译错误。</h4><h3 id="异常处理原则"><a href="#异常处理原则" class="headerlink" title="异常处理原则"></a>异常处理原则</h3><ol>
+<li>函数内容如果抛出了需要监测的异常，那么函数上必须要声明，否则必须在函数内用try，catch捕捉，否则编译失败。</li>
+<li>如果调用到了声明异常的函数，要么try，catch，要么throws，否则编译失败。</li>
+<li>什么时候catch，什么时候throws？<br>功能内容可以解决用catch，解决不了用throws告诉调用者，由调用者解决。</li>
+<li>一个功能如果抛出了多个异常，那么调用时必须有对应多个catch进行针对性的处理。内有有几个需要检测的异常，就抛出几个异常，抛出几个就catch几个。</li>
+</ol>
+<h3 id="finally代码块"><a href="#finally代码块" class="headerlink" title="finally代码块"></a>finally代码块</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span> index)</span><span class="keyword">throws</span> ArrayIndexOutOfBoundsException</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span> (index&lt;<span class="number">0</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(<span class="string">"下标越界了"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</div><div class="line">		<span class="keyword">return</span> arr[index];</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionDemo5</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		Demo d = <span class="keyword">new</span> Demo();</div><div class="line">		<span class="keyword">try</span></div><div class="line">		&#123;</div><div class="line">			<span class="keyword">int</span> num = d.show(-<span class="number">3</span>);</div><div class="line">			System.out.println(<span class="string">"num:"</span>+num);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">catch</span>(ArrayIndexOutOfBoundsException e)</div><div class="line">		&#123;</div><div class="line">			System.out.println(e.toString());</div><div class="line"><span class="comment">//			return;//不执行程序剩余代码</span></div><div class="line"><span class="comment">//			System.exit(0);//退出JVM,不执行finally语句</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">finally</span> <span class="comment">//通常用于释放资源,例如关闭数据库连接</span></div><div class="line">		&#123;</div><div class="line">			System.out.println(<span class="string">"finally"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"over"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="try，catch，finally代码块组合特点"><a href="#try，catch，finally代码块组合特点" class="headerlink" title="try，catch，finally代码块组合特点"></a>try，catch，finally代码块组合特点</h3><ol>
+<li>try,catch,finally;</li>
+<li>try,catch,(多个);当没有资源要释放时，可以不用定义finally.</li>
+<li>try,finally.异常无法catch处理，但是资源需要关闭。</li>
+</ol>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LanpingException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span></div><div class="line">&#123;</div><div class="line">	LanpingException(String msg)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">super</span>(msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MaoyanException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span></div><div class="line">&#123;</div><div class="line">	MaoyanException(String msg)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">super</span>(msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoPlanException</span> <span class="keyword">extends</span> <span class="title">Exception</span></span></div><div class="line">&#123;</div><div class="line">	NoPlanException(String msg)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">super</span>(msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Computer</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> state = <span class="number">2</span>;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> <span class="keyword">throws</span> LanpingException,MaoyanException</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span> (state == <span class="number">1</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> LanpingException(<span class="string">"电脑蓝屏了!"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="keyword">if</span> (state == <span class="number">2</span>)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> MaoyanException(<span class="string">"电脑冒烟了!"</span>);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"computer run!"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Reset</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		state = <span class="number">0</span>;</div><div class="line">		System.out.println(<span class="string">"电脑重启!"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> Computer comp;</div><div class="line"></div><div class="line">	Teacher(String name)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">		comp = <span class="keyword">new</span> Computer();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Prelect</span><span class="params">()</span> <span class="keyword">throws</span> NoPlanException<span class="comment">//MaoyanException</span></span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">try</span></div><div class="line">		&#123;</div><div class="line">			comp.run();</div><div class="line">			System.out.println(name+<span class="string">" class begin!"</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">catch</span>(LanpingException e)</div><div class="line">		&#123;</div><div class="line">			System.out.println(e.toString());</div><div class="line">			comp.Reset();</div><div class="line">			Prelect();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">catch</span>(MaoyanException e)</div><div class="line">		&#123;</div><div class="line">			System.out.println(e.toString());</div><div class="line">			test();</div><div class="line">			<span class="comment">// throw e;</span></div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> NoPlanException(<span class="string">"课时进度无法完成！"</span>+e.getMessage());</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></div><div class="line">	&#123;</div><div class="line">		System.out.println(<span class="string">"大家练习!"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExceptionDemo6</span></span></div><div class="line">&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">	&#123;</div><div class="line">		Teacher teacher = <span class="keyword">new</span> Teacher(<span class="string">"Lee"</span>);</div><div class="line">		trya</div><div class="line">		&#123;</div><div class="line">			teacher.Prelect();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">catch</span>(NoPlanException e)<span class="comment">//catch(MaoyanException e)</span></div><div class="line">		&#123;</div><div class="line">			System.out.println(e.toString()+<span class="string">"...."</span>);</div><div class="line">			System.out.println(<span class="string">"换人！"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="实例解析"><a href="#实例解析" class="headerlink" title="实例解析:"></a>实例解析:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class NoAddException</div><div class="line">&#123;</div><div class="line">	NoAddException(String msg)</div><div class="line">	&#123;</div><div class="line">		super(msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class addData throws NoAddException</div><div class="line">&#123;</div><div class="line">	//连接数据库</div><div class="line">	try</div><div class="line">	&#123;</div><div class="line">		//添加数据出现异常，SQLException();</div><div class="line">	&#125;</div><div class="line">	catch(SQLException e)</div><div class="line">	&#123;</div><div class="line">		//处理代码</div><div class="line">		throw new NoAddException();</div><div class="line">	&#125;</div><div class="line">	finally</div><div class="line">	&#123;</div><div class="line">		//关闭数据库</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/03/13/Java_Exception/">Java_Exception</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Xavier Lee 的个人博客">Xavier Lee</a></p>
+        <p><span>发布时间:</span>2016年03月13日 - 00时52分</p>
+        <p><span>最后更新:</span>2016年05月18日 - 00时33分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/13/Java_Exception/" title="Java_Exception">http://www.learnandroid.cn/2016/03/13/Java_Exception/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.learnandroid.cn/2016/03/13/Java_Exception/　　作者: Xavier Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/03/13/Java_Object/">
+                    Java_Object
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/09/Java匿名内部类/">
+                    Java匿名内部类
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java异常"><span class="toc-number">1.</span> <span class="toc-text">java异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#异常概述："><span class="toc-number">1.1.</span> <span class="toc-text">异常概述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本质"><span class="toc-number">1.2.</span> <span class="toc-text">本质:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常对象的抛出及原理"><span class="toc-number">1.3.</span> <span class="toc-text">异常对象的抛出及原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义异常类"><span class="toc-number">1.4.</span> <span class="toc-text">自定义异常类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#提前throws可能会遇到的异常"><span class="toc-number">1.4.1.</span> <span class="toc-text">提前throws可能会遇到的异常</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常的分类"><span class="toc-number">1.5.</span> <span class="toc-text">异常的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.6.</span> <span class="toc-text">总结:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#throw和throws的区别："><span class="toc-number">1.7.</span> <span class="toc-text">throw和throws的区别：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常处理的捕捉形式"><span class="toc-number">1.8.</span> <span class="toc-text">异常处理的捕捉形式:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#格式："><span class="toc-number">1.8.1.</span> <span class="toc-text">格式：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tips-多catch情况下，父类的catth放在最下面，否则编译错误。"><span class="toc-number">1.8.2.</span> <span class="toc-text">tips: 多catch情况下，父类的catth放在最下面，否则编译错误。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常处理原则"><span class="toc-number">1.9.</span> <span class="toc-text">异常处理原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finally代码块"><span class="toc-number">1.10.</span> <span class="toc-text">finally代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#try，catch，finally代码块组合特点"><span class="toc-number">1.11.</span> <span class="toc-text">try，catch，finally代码块组合特点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Example"><span class="toc-number">1.11.1.</span> <span class="toc-text">Example:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实例解析"><span class="toc-number">1.11.2.</span> <span class="toc-text">实例解析:</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/03/13/Java_Object/" title="上一篇: Java_Object">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/03/09/Java匿名内部类/" title="下一篇: Java匿名内部类">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/Java面试之替换空格/">Java面试之替换空格</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/交换类排序之冒泡排序/">交换类排序之冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/交换类排序之快速排序/">交换类排序之快速排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Java面试之无限大数组中求第k大/">Java面试之无限大数组中求第k大</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/Java网络编程/">Java网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/Java集合Map详解/">Java集合Map详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/Java面试之素数/">Java面试之素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/Java泛型/">Java泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之操作数组/">Java面试之操作数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java模拟堆栈/">Java模拟堆栈队</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之音乐专辑/">Java面试之音乐专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之操作字符串/">Java面试之操作字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java常用设计模式/">Java常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/Java集合Collection详解/">Java集合Collection详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/24/Java基本数据类型对象包装类/">Java基本数据类型对象包装类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/17/Java_String详解/">Java_String详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/Java面试之大数据相乘/">Java面试之大数据相乘</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/Java多线程/">Java多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Java_Package/">Java_Package</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Java_Object/">Java_Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Java_Exception/">Java_Exception</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/Java匿名内部类/">Java匿名内部类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/Java_InnerClass/">Java_InnerClass</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java多态/">Java多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java_Interface/">Java_Interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java抽象类/">Java抽象类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/Java继承/">Java继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/Android_downloadPicture/">Android_downloadPicture</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/27/Android_updateVersionCode/">Android_updateVersionCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/26/Android_Camera/">Android_Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Android_MobileSafe/">Android_MobileSafe</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Xavier Lee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

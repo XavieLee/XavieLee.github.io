@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android_downloadPicture | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="网络编程（一）下载网络图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android_downloadPicture">
+<meta property="og:url" content="http://www.learnandroid.cn/2016/01/28/Android_downloadPicture/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="网络编程（一）下载网络图片">
+<meta property="og:updated_time" content="2016-05-17T16:36:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android_downloadPicture">
+<meta name="twitter:description" content="网络编程（一）下载网络图片">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  
+      <link href="//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Xavier Lee</a></h1>
+        </hgroup>
+
+        
+        
+        <form><input type="text" class="search" placeholder=" Search..."></form>
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:724379330@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/github.com/Xavielee" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Project/" style="font-size: 10px;">Android Project</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/java/" style="font-size: 16.67px;">java</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/Xavielee">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.0x00000000.cn">LoveLinux</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://thqy39.github.io">webAgent</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://LiYade.github.io">BigBoss</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Xavier Lee</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Xavier Lee</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:724379330@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/github.com/Xavielee" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Android_downloadPicture" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/28/Android_downloadPicture/" class="article-date">
+      <time datetime="2016-01-27T16:25:28.000Z" itemprop="datePublished">2016-01-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android_downloadPicture
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/网络编程/">网络编程</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="网络编程（一）"><a href="#网络编程（一）" class="headerlink" title="网络编程（一）"></a>网络编程（一）</h1><h2 id="下载网络图片"><a href="#下载网络图片" class="headerlink" title="下载网络图片"></a>下载网络图片</h2><a id="more"></a>
+<ul>
+<li><h2 id="网络请求Note"><a href="#网络请求Note" class="headerlink" title="网络请求Note:"></a>网络请求Note:</h2></li>
+</ul>
+<h3 id="主线程不能被阻塞"><a href="#主线程不能被阻塞" class="headerlink" title="主线程不能被阻塞"></a>主线程不能被阻塞</h3><ul>
+<li><p>在Android中，主线程被阻塞会导致应用不能刷新ui界面，不能响应用户操作，用户体验将非常差。</p>
+</li>
+<li><p>主线程阻塞时间过长，系统会抛出ANR异常。</p>
+</li>
+<li><p>ANR：Application Not Response；应用无响应。</p>
+</li>
+<li><p>任何耗时操作都不可以写在主线程。</p>
+</li>
+<li><p>因为网络交互属于耗时操作，如果网速很慢，代码会阻塞，所以网络交互的代码不能运行在主线程。</p>
+</li>
+</ul>
+<h3 id="只有主线程能刷新UI"><a href="#只有主线程能刷新UI" class="headerlink" title="只有主线程能刷新UI"></a>只有主线程能刷新UI</h3><ul>
+<li><p>刷新UI的代码只能运行在主线程，运行在子线程是没有任何效果的</p>
+</li>
+<li><p>如果需要在子线程中刷新UI，使用消息队列机制</p>
+</li>
+</ul>
+<h3 id="消息队列机制"><a href="#消息队列机制" class="headerlink" title="消息队列机制"></a>消息队列机制</h3><ul>
+<li><p>主线程创建时，系统会同时创建消息队列对象（MessageQueue）和消息轮询器对象（Looper）。</p>
+</li>
+<li><p>轮询器的作用，就是不停的检测消息队列中是否有消息（Message）。</p>
+</li>
+<li><p>Looper一旦发现Message Queue中有消息，就会把消息取出，然后把消息扔给Handler对象，Handler会调用自己的handleMessage方法来处理这条消息，handleMessage方法运行在主线程中，所以可以刷新UI。</p>
+</li>
+</ul>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ul>
+<li><p>handleMessage方法运行在主线程</p>
+</li>
+<li><p>主线程创建时，消息队列和轮询器对象就会被创建，但是消息处理器对象，需要使用时，自行创建</p>
+</li>
+<li><p>只要消息队列有消息，handleMessage方法就会调用。</p>
+</li>
+<li><p>子线程如果需要刷新ui，只需要往消息队列中发一条消息，触发handleMessage方法即可。</p>
+</li>
+<li><p>子线程使用Handler对象的sendMessage方法发送消息。</p>
+</li>
+</ul>
+<ul>
+<li><h2 id="正篇"><a href="#正篇" class="headerlink" title="正篇"></a>正篇</h2></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line"></div><div class="line">$    <span class="keyword">static</span> ImageView iv;</div><div class="line">$    <span class="keyword">static</span> MainActivity ma;</div><div class="line"></div><div class="line">$    <span class="keyword">static</span> Handler handler = <span class="keyword">new</span> Handler() &#123;</div><div class="line">$        <span class="comment">//12.此方法在主线程中调用,可以更新UI</span></div><div class="line">$        <span class="meta">@Override</span></div><div class="line">$        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">$            <span class="comment">//15.根据接收到的不同的消息来处理</span></div><div class="line">$            <span class="keyword">switch</span> (msg.what) &#123;</div><div class="line">$                <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">$                    Toast.makeText(ma, <span class="string">"请求失败"</span>, <span class="number">0</span>).show();</div><div class="line">$                    <span class="keyword">break</span>;</div><div class="line">$                <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">$                    iv.setImageBitmap((Bitmap) msg.obj);</div><div class="line">$                    <span class="keyword">break</span>;</div><div class="line">$            &#125;</div><div class="line">$        &#125;</div><div class="line">$    &#125;;</div><div class="line">$</div><div class="line">$    <span class="meta">@Override</span></div><div class="line">$    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">$        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">$        <span class="keyword">this</span>.setContentView(R.layout.activity_splash);</div><div class="line">$        iv = (TextView) findViewById(R.id.iv);</div><div class="line">$        ma = <span class="keyword">this</span>;</div><div class="line">$    &#125;</div><div class="line">$</div><div class="line">$ <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">()</span> </span>&#123;</div><div class="line">$    <span class="comment">//启动子线程，4.0以上系统必须在子线程中访问网络！否则易造成ANR错误.</span></div><div class="line">$    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">$        <span class="meta">@Override</span></div><div class="line">$        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">$            <span class="keyword">try</span> &#123;</div><div class="line">$                <span class="comment">//1.确定图片地址</span></div><div class="line">$                String path = <span class="string">"http://xavielee.github.io/profilePhoto.jpg"</span>;</div><div class="line">$                <span class="comment">//2.把网址封装成一个url</span></div><div class="line">$                URL url = <span class="keyword">new</span> URL(path);</div><div class="line">$                <span class="comment">//3.获取客户端和服务端的连接对象</span></div><div class="line">$                HttpURLConnection connection = (HttpURLConnection) url.openConnection();</div><div class="line">$                <span class="comment">//4.设置请求方法，一般都是"GET"</span></div><div class="line">$                connection.setRequestMethod(<span class="string">"GET"</span>);</div><div class="line">$                <span class="comment">//5.设置连接超时时间</span></div><div class="line">$                connection.setConnectTimeout(<span class="number">5000</span>);</div><div class="line">$                <span class="comment">//6.设置读取超时时间</span></div><div class="line">$                connection.setReadTimeout(<span class="number">5000</span>);</div><div class="line">$                <span class="comment">//7.发送请求与服务器连接</span></div><div class="line">$                connection.connect();</div><div class="line">$                <span class="comment">//8.获得状态码(响应码)</span></div><div class="line">$                <span class="keyword">int</span> code = connection.getResponseCode();</div><div class="line">$                <span class="comment">//9.如果响应码为200，则请求成功</span></div><div class="line">$                <span class="keyword">if</span> (code == <span class="number">200</span>) &#123;</div><div class="line">$                    <span class="comment">//10.获取服务器响应头中的流，流中的数据就是请求的数据</span></div><div class="line">$                    InputStream in = connection.getInputStream();</div><div class="line">$                    <span class="comment">//11.读取出流中的数据，并构造成位图对象</span></div><div class="line">$                    Bitmap bm = BitmapFactory.decodeStream(in);</div><div class="line">$                    <span class="comment">//12.不能直接把位图对象显示至给imageView,要通过发消息来更新主线程UI</span></div><div class="line">$                    <span class="comment">//ImageView imageView= (imageView)findViewById(R.id.img);</span></div><div class="line">$                    <span class="comment">//imageView.setImageBitmap(bm);</span></div><div class="line">$                    <span class="comment">//12.创建消息,用obtainMessage()可节省内存</span></div><div class="line">$                    Message msg = handler.obtainMessage();</div><div class="line">$                    <span class="comment">//13.消息对象可以携带数据</span></div><div class="line">$                    msg.obj = bm;</div><div class="line">$                    msg.what = <span class="number">1</span>;</div><div class="line">$                    <span class="comment">//14.把消息发送到主线程队列</span></div><div class="line">$                    handler.sendMessage(msg);</div><div class="line">$                &#125; <span class="keyword">else</span> &#123;</div><div class="line">$                       Message msg = handler.obtainMessage();</div><div class="line">$                       msg.what = <span class="number">0</span>;</div><div class="line">$                       handler.sendMessage(msg);</div><div class="line">$                       &#125;</div><div class="line">$            &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</div><div class="line">$                e.printStackTrace();</div><div class="line">$            &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">$                e.printStackTrace();</div><div class="line">$            &#125;</div><div class="line">$        &#125;</div><div class="line">$    &#125;).start();</div><div class="line">$</div><div class="line">$ &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/01/28/Android_downloadPicture/">Android_downloadPicture</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Xavier Lee 的个人博客">Xavier Lee</a></p>
+        <p><span>发布时间:</span>2016年01月28日 - 00时25分</p>
+        <p><span>最后更新:</span>2016年05月18日 - 00时36分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/28/Android_downloadPicture/" title="Android_downloadPicture">http://www.learnandroid.cn/2016/01/28/Android_downloadPicture/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.learnandroid.cn/2016/01/28/Android_downloadPicture/　　作者: Xavier Lee" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/03/05/Java继承/">
+                    Java继承
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/01/27/Android_updateVersionCode/">
+                    Android_updateVersionCode
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网络编程（一）"><span class="toc-number">1.</span> <span class="toc-text">网络编程（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载网络图片"><span class="toc-number">1.1.</span> <span class="toc-text">下载网络图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络请求Note"><span class="toc-number">1.2.</span> <span class="toc-text">网络请求Note:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主线程不能被阻塞"><span class="toc-number">1.2.1.</span> <span class="toc-text">主线程不能被阻塞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#只有主线程能刷新UI"><span class="toc-number">1.2.2.</span> <span class="toc-text">只有主线程能刷新UI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息队列机制"><span class="toc-number">1.2.3.</span> <span class="toc-text">消息队列机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结："><span class="toc-number">1.3.</span> <span class="toc-text">总结：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正篇"><span class="toc-number">1.4.</span> <span class="toc-text">正篇</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/03/05/Java继承/" title="上一篇: Java继承">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/01/27/Android_updateVersionCode/" title="下一篇: Android_updateVersionCode">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/08/11/Java面试之替换空格/">Java面试之替换空格</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/交换类排序之冒泡排序/">交换类排序之冒泡排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/交换类排序之快速排序/">交换类排序之快速排序</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/27/Java面试之无限大数组中求第k大/">Java面试之无限大数组中求第k大</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/Java网络编程/">Java网络编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/23/Java集合Map详解/">Java集合Map详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/Java面试之素数/">Java面试之素数</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/Java泛型/">Java泛型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之操作数组/">Java面试之操作数组</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java模拟堆栈/">Java模拟堆栈队</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之音乐专辑/">Java面试之音乐专辑</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java面试之操作字符串/">Java面试之操作字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/Java常用设计模式/">Java常用设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/Java集合Collection详解/">Java集合Collection详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/24/Java基本数据类型对象包装类/">Java基本数据类型对象包装类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/17/Java_String详解/">Java_String详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/08/Java面试之大数据相乘/">Java面试之大数据相乘</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/04/Java多线程/">Java多线程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/Java_Package/">Java_Package</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Java_Object/">Java_Object</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/Java_Exception/">Java_Exception</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/Java匿名内部类/">Java匿名内部类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/Java_InnerClass/">Java_InnerClass</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java多态/">Java多态</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java_Interface/">Java_Interface</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/Java抽象类/">Java抽象类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/Java继承/">Java继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/28/Android_downloadPicture/">Android_downloadPicture</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/27/Android_updateVersionCode/">Android_updateVersionCode</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/26/Android_Camera/">Android_Camera</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Android_MobileSafe/">Android_MobileSafe</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 Xavier Lee
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
